@@ -1,7 +1,7 @@
 import { LanguageSelector } from '@/components/language-selector';
 import { TextArea } from '@/components/textarea';
 import { OPENAI_KEY } from '@/constants';
-import { Container, Flex, Text, Title } from '@mantine/core';
+import { Box, Container, Flex, Text, Title } from '@mantine/core';
 import OpenAI from 'openai';
 
 interface Props {
@@ -38,12 +38,14 @@ export default async function Home({ searchParams }: Props) {
 
   return (
     <Container>
-      <Flex direction={'column'} gap={'md'} h={'100vh'} justify={'center'}>
+      <Flex direction={'column'} gap={'md'} justify={'center'}>
         <LanguageSelector from={from} to={to} />
         <Title order={2} ta={'left'}>Inser text to translate:</Title>
         <TextArea defaultValue={text} />
         <Title order={2} ta={'left'}>Translation result:</Title>
-        <Text fz={24}>{response?.choices[0].message.content}</Text>
+        <Box style={{ border: '1px solid #3f3f3f', borderRadius: 'calc(0.25rem*var(--mantine-scale))' }} p={'xl'}>
+          <Text fz={24}>{response?.choices[0].message.content}</Text>
+        </Box>
       </Flex>
     </Container>
   );

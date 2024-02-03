@@ -1,6 +1,6 @@
 import '@mantine/core/styles.css';
 
-import { ColorSchemeScript, MantineProvider } from '@mantine/core';
+import { ColorSchemeScript, Container, Divider, Flex, MantineProvider, Text, Title } from '@mantine/core';
 
 export const metadata = {
   title: 'Translator | Made by Pau Segarra',
@@ -18,7 +18,15 @@ export default function RootLayout({
         <ColorSchemeScript />
       </head>
       <body>
-        <MantineProvider defaultColorScheme='dark'>{children}</MantineProvider>
+        <MantineProvider defaultColorScheme='dark'>
+          <Title order={1} ta={'center'} mt={'xl'}>Text Translator</Title>
+          <Text mb={'xl'} ta={'center'}>A simple text translator powered by ChatGPT</Text>
+          {children}
+          <Flex justify={'center'} mt={'xl'} align={'center'} py={'xl'} bg={'#3f3f3f'} direction={'column'} gap={'md'}>
+            <Text fz={18}>developed by pau<strong>segarra</strong></Text>
+            <a href="https://github.com/pausegarra/translator" target="_blank"><img src="/github.svg" alt="" /></a>
+          </Flex>
+        </MantineProvider>
       </body>
     </html>
   );
