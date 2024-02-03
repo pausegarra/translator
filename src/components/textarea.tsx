@@ -15,7 +15,11 @@ export function TextArea({ defaultValue }: Props) {
 
   React.useEffect(() => {
     const searchParams = new URLSearchParams(window.location.search);
-    searchParams.set('text', value);
+    if (value !== '') {
+      searchParams.set('text', value);
+    } else {
+      searchParams.delete('text');
+    }
     router.replace(`${window.location.pathname}?${searchParams.toString()}`);
   }, [value]);
 
