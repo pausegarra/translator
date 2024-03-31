@@ -40,7 +40,7 @@ export default async function Home({ searchParams }: Props) {
     <Container>
       <Flex direction={'column'} gap={'md'} justify={'center'}>
         <LanguageSelector from={from} to={to} />
-        <Title order={2} ta={'left'}>Inser text to translate:</Title>
+        <Title order={2} ta={'left'}>Insert text to translate:</Title>
         <TextArea defaultValue={text} />
         <Title order={2} ta={'left'}>Translation result:</Title>
         <Box style={{ border: '1px solid #3f3f3f', borderRadius: 'calc(0.25rem*var(--mantine-scale))' }} p={'xl'}>
